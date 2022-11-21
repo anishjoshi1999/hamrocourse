@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <title>Random</title>
+    <%- include('partials/bootstrap')%>
+</head>
+
+<body>
+    <%- include('partials/navbar')%>
+    <h1>The random number is : <%=num%>
+    </h1>
+    <%if(num % 2==0) { %>
+        <h3>Even</h3>
+        <%} else {%>
+            <h3>Odd</h3>
+            <%}%>
+</body>
+
+</html>

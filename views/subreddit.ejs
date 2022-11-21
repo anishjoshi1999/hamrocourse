@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=name%>
+    </title>
+    <%- include('partials/bootstrap')%>
+</head>
+
+<body>
+    <%- include('partials/navbar')%>
+        <h1>You are searching for <%=name%>
+        </h1>
+        <h2>
+            <%=description%>
+        </h2>
+        <h3>It has <%=subscribers%> on youtube</h3>
+        <h4>Total posts <%=posts.length%>
+        </h4>
+        <%posts.forEach((post)=> {%>
+            <h5>
+                Title: <%=post.title%>
+            </h5>
+            <h5>Author: <%=post.author%>
+            </h5>
+            <%if(post.img){%>
+                <img src="<%=post.img%>" alt="">
+                <%}%>
+
+                    <%})%>
+</body>
+
+</html>

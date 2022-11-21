@@ -1,0 +1,19 @@
+1.Express path parameters
+- "req.params"
+- sub path is accessed by params property
+- params property is accessed by request object
+2.Express query parameters
+- "req.query"
+- query property is accessed by the request object.
+- It is generally used while searching, sorting, and stuffing.
+- Multiple key-value pairs can be sent as a get request through an ampersand.
+3.Before using ejs
+- app.set('view engine', 'ejs');
+- we have to make a directory called "views"
+- Use most of the logic inside the route and pass it to the ejs template.
+4.Working with static files
+- express.static(root,[options]) is a middleware
+- app.use(express.static('public'))
+5.ejs partials are important to duplicate stuff
+-I would like to gather common code inside partials.
+-Type "%- include('partials/your_ejs_file')%>" to include common code in your ejs. 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cats Names</title>
+    <%- include('partials/bootstrap')%>
+</head>
+
+<body>
+    <%- include('partials/navbar')%>
+    <h1>Cat Names</h1>
+    <ol>
+        <%cats.forEach((cat)=> {%>
+            <li>
+                <%=cat%>
+            </li>
+            <%})%>
+    </ol>
+
+</body>
+
+</html>
