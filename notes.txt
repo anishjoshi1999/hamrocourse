@@ -1,0 +1,9 @@
+1.parsing the request body
+- req.body
+- By default, it is undefined.
+- To get values, you have to use body parser middleware.
+- you have to install a package called bodyParser
+parse application/x-www-form-urlencoded
+- app.use(bodyParser.urlencoded({extended:true}))
+parse application/json
+- app.use(bodyParser.json())
