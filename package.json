@@ -58,6 +58,7 @@
     "jake": "^10.8.5",
     "media-typer": "^0.3.0",
     "merge-descriptors": "^1.0.1",
+    "method-override": "^3.0.0",
     "methods": "^1.1.2",
     "mime": "^1.6.0",
     "mime-db": "^1.52.0",
@@ -96,6 +97,7 @@
     "undefsafe": "^2.0.5",
     "unpipe": "^1.0.0",
     "utils-merge": "^1.0.1",
+    "uuid": "^9.0.0",
     "vary": "^1.1.2"
   },
   "scripts": {
