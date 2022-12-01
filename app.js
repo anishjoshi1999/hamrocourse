@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
+const ejsMate = require('ejs-mate')
 var bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
@@ -14,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/yelp-camp')
         console.log(err)
     })
 const app = express()
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -27,11 +29,11 @@ app.get('/', (req, res) => {
 // Display a list of all campgrounds
 app.get('/campgrounds', async (req, res) => {
     const campgrounds = await Campground.find({})
-    res.render('index', { campgrounds })
+    res.render('campgrounds/index', { campgrounds })
 })
 // Show form to make new campground
 app.get('/campgrounds/new', (req, res) => {
-    res.render('new')
+    res.render('campgrounds/new')
 })
 // Add a new campground to data base, then redirect
 app.post('/campgrounds', async (req, res) => {
@@ -46,14 +48,14 @@ app.get('/campgrounds/:id', async (req, res) => {
     const { id } = req.params;
     // Find campground using id
     const foundCampground = await Campground.findById(id)
-    res.render('show', { foundCampground })
+    res.render('campgrounds/show', { foundCampground })
 })
 // Show edit form of one campground
 app.get('/campgrounds/:id/edit', async (req, res) => {
     const { id } = req.params
     //Find campground using id
     const foundCampground = await Campground.findById(id)
-    res.render('edit', { foundCampground })
+    res.render('campgrounds/edit', { foundCampground })
 })
 // Update a particular Campground, the redirect
 app.patch('/campgrounds/:id', async (req, res) => {

@@ -1,0 +1,12 @@
+<%layout('layouts/boilerplate')%>
+        <a href="/campgrounds/new">Create New Campground</a>
+        <ul>
+            <% campgrounds.forEach((campground)=> {%>
+                <li>
+                    <a href="/campgrounds/<%=campground._id%>">
+                        <%=campground.title%>
+                    </a>
+                </li>
+                <% }) %>
+        </ul>
+        <a href="/">Back</a>
