@@ -1,20 +1,31 @@
 <%layout('layouts/boilerplate')%>
-    <div style="text-align: center;">
-        <h1>Edit Campground</h1>
-        <form action="/campgrounds/<%=foundCampground._id%>?_method=PATCH" method="POST">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" value="<%=foundCampground.title%>">
-            <br>
-            <label for="price">Price</label>
-            <input type="number" id="price" step="0.01" name="price" value="<%=foundCampground.price%>">
-            <br>
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" value="<%=foundCampground.location%>">
-            <br>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description">
-                <%=foundCampground.description%>
-            </textarea>
-            <br>
-            <button>Edit</button>
-        </form>
+    <div class="row">
+        <h1 class="text-center">Edit Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds/<%=foundCampground._id%>?_method=PATCH" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input id="title" type="text" class="form-control" value="<%=foundCampground.title%>" name="title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input id="price" type="number" class="form-control" step="0.01" name="price" value="<%=foundCampground.price%>" min="0.00">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Edit Image URL</label>
+                    <input type="text" name="image" id="image" class="form-control" value="<%=foundCampground.image%>">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input id="location" type="text" class="form-control" name="location" value="<%=foundCampground.location%>">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"> <%=foundCampground.description%></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Edit Campground</button>
+                </div>
+            </form>
+        </div>
     </div>

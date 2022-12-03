@@ -37,6 +37,7 @@ app.get('/campgrounds/new', (req, res) => {
 })
 // Add a new campground to data base, then redirect
 app.post('/campgrounds', async (req, res) => {
+    console.log(req.body)
     const newCampground = new Campground(req.body)
     await newCampground.save(() => {
         console.log('success')
