@@ -2,11 +2,13 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const ejsMate = require('ejs-mate')
+const dotenv = require("dotenv").config()
 var bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 const Campground = require('./models/campground')
-mongoose.connect('mongodb://localhost:27017/yelp-camp')
+const MONGODB_URI = `mongodb+srv://anishjoshi2056:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0.mfsduzy.mongodb.net/yelp-camp`
+mongoose.connect(MONGODB_URI)
     .then(() => {
         console.log("connection open")
     })
@@ -37,7 +39,6 @@ app.get('/campgrounds/new', (req, res) => {
 })
 // Add a new campground to data base, then redirect
 app.post('/campgrounds', async (req, res) => {
-    console.log(req.body)
     const newCampground = new Campground(req.body)
     await newCampground.save(() => {
         console.log('success')
@@ -71,6 +72,6 @@ app.delete('/campgrounds/:id', async (req, res) => {
     res.redirect('/campgrounds')
 })
 
-app.listen(3000, () => {
-    console.log("Serving on port 3000")
+app.listen(process.env.PORT, () => {
+    console.log(`Serving on port ${process.env.PORT} `)
 })

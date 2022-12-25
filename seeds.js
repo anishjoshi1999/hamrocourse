@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Campground = require('./models/campground')
-mongoose.connect('mongodb://localhost:27017/yelp-camp')
+const dotenv = require("dotenv").config()
+const MONGODB_URI = `mongodb+srv://anishjoshi2056:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0.mfsduzy.mongodb.net/yelp-camp`
+mongoose.connect(MONGODB_URI)
     .then(() => {
         console.log("connection open")
     })
@@ -8,7 +10,6 @@ mongoose.connect('mongodb://localhost:27017/yelp-camp')
         console.log("error found")
         console.log(err)
     })
-
 
 const seedCampgrounds = [
     {
