@@ -8,6 +8,7 @@ const methodOverride = require('method-override')
 
 const Campground = require('./models/campground')
 const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0.mfsduzy.mongodb.net/yelp-camp`
+mongoose.set('strictQuery', false);
 mongoose.connect(MONGODB_URI)
     .then(() => {
         app.listen(process.env.PORT, () => {
