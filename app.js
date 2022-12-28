@@ -7,10 +7,13 @@ var bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
 const Campground = require('./models/campground')
-const MONGODB_URI = `mongodb+srv://anishjoshi2056:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0.mfsduzy.mongodb.net/yelp-camp`
+const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@cluster0.mfsduzy.mongodb.net/yelp-camp`
 mongoose.connect(MONGODB_URI)
     .then(() => {
-        console.log("connection open")
+        app.listen(process.env.PORT, () => {
+            console.log(`Serving on port ${process.env.PORT} `)
+        })
+        console.log("Connected to MongoDB Atlas open")
     })
     .catch((err) => {
         console.log("error found")
@@ -77,6 +80,3 @@ app.delete('/campgrounds/:id', async (req, res,next) => {
         res.redirect('/campgrounds')
 })
 
-app.listen(process.env.PORT, () => {
-    console.log(`Serving on port ${process.env.PORT} `)
-})
