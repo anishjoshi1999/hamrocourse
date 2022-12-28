@@ -2,26 +2,41 @@
     <div class="row">
         <h1 class="text-center">New Campground</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds" method="POST">
+            <form action="/campgrounds" method="POST" novalidate class="validated-form">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" id="title" name="title">
+                    <input class="form-control" type="text" id="title" name="title" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="price">Price</label>
-                    <input type="number" step="0.01" id="price" name="price" class="form-control" min="0.00">
+                    <input type="number" step="0.01" id="price" name="price" class="form-control" min="0.00" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="image">Image URL</label>
-                    <input type="text" name="image" id="image" class="form-control">
+                    <input type="text" name="image" id="image" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
-                    <input type="text" id="location" name="location" class="form-control">
+                    <input type="text" id="location" name="location" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-success">Add Campground</button>
@@ -31,3 +46,4 @@
 
         </div>
     </div>
+

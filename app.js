@@ -38,12 +38,17 @@ app.get('/campgrounds/new', (req, res) => {
     res.render('campgrounds/new')
 })
 // Add a new campground to data base, then redirect
-app.post('/campgrounds', async (req, res) => {
-    const newCampground = new Campground(req.body)
-    await newCampground.save(() => {
-        console.log('success')
-    })
-    res.redirect('/campgrounds')
+app.post('/campgrounds', async (req, res,next) => {
+    try {
+        const newCampground = new Campground(req.body)
+        await newCampground.save(() => {
+            console.log('success')
+        })
+        res.redirect('/campgrounds')
+    } catch (error) {
+        next(error)
+    }
+   
 })
 // Show info about one campgrounds
 app.get('/campgrounds/:id', async (req, res) => {
@@ -66,10 +71,10 @@ app.patch('/campgrounds/:id', async (req, res) => {
     res.redirect('/campgrounds')
 })
 // Delete a particular campground, then redirect
-app.delete('/campgrounds/:id', async (req, res) => {
-    const { id } = req.params;
-    await Campground.findByIdAndDelete(id)
-    res.redirect('/campgrounds')
+app.delete('/campgrounds/:id', async (req, res,next) => {
+        const { id } = req.params;
+        await Campground.findByIdAndDelete(id)
+        res.redirect('/campgrounds')
 })
 
 app.listen(process.env.PORT, () => {
