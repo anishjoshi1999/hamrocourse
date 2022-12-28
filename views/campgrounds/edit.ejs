@@ -1,0 +1,46 @@
+<%layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">Edit Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds/<%=foundCampground._id%>?_method=PATCH" method="POST"  novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input id="title" type="text" class="form-control" value="<%=foundCampground.title%>" name="title" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <input id="price" type="number" class="form-control" step="0.01" name="price" value="<%=foundCampground.price%>" min="0.00" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Edit Image URL</label>
+                    <input type="text" name="image" id="image" class="form-control" value="<%=foundCampground.image%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input  id="location" type="text" class="form-control" name="location" value="<%=foundCampground.location%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" required> <%=foundCampground.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Edit Campground</button>
+                </div>
+            </form>
+        </div>
+    </div>
